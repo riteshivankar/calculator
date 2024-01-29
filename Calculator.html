@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+       
+        @keyframes changebg {
+            0%{
+                background-color: #7e3d89;
+            }
+            20%{
+                background-color: #009688;
+            }
+            40%{
+                background-color: burlywood;
+            }
+            60%{
+                background-color: #c17156;
+            }
+            80%{
+                background-color: cadetblue;
+            }
+            100%{
+                background-color:#7e3d89 ;
+            }
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            background-color: #e3f9ff;
+            display: grid;
+            place-content: center;
+            animation: changebg 10s linear 1s infinite ;
+        }
+        .calculator{
+            background-color: #3a4452;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            /* text-decoration: underline; */
+            background: #000;
+            color: #e3f9ff;
+        
+
+        }
+        .calculator form input{
+            border: 0;
+            outline: 0;
+            height: 60px;
+            width: 60px;
+            border-radius: 10px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            font-size: 20px;
+            color: white;
+            /* margin: 10px; */
+            cursor: pointer;
+
+
+        }
+        
+        .display{
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+        }
+        form .display input{
+
+            text-align: right;
+            flex: 1;
+            font-size: 40px;
+            box-shadow: none;
+            border: 2px solid rgba(161, 153, 153, 0.421);
+        }
+        form input.space{
+            width: 125px;
+        }
+        form input.operators{
+            color: rgb(125, 211, 211);
+        }
+        .display:hover{
+            background-color: rgb(58, 87, 118);
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="Display">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick=" Display.value = ''" class="operators" >
+                    <input type="button" value="DE" onclick=" Display.value = Display.value.toString().slice(0, -1)" class="operators">
+                    <input type="button" value="." onclick=" Display.value += '.'" class="operators">
+                    <input type="button" value="/" onclick=" Display.value += '/'" class="operators" >
+                </div>
+                <div>
+                    <input type="button" value="7" onclick=" Display.value += '7' "  >
+                    <input type="button" value="8" onclick=" Display.value += '8'" >
+                    <input type="button" value="9" onclick=" Display.value += '9'">
+                    <input type="button" value="*" onclick=" Display.value += '*'" class="operators" >
+                </div>
+                <div>
+                    <input type="button" value="4" onclick=" Display.value += '4'" >
+                    <input type="button" value="5" onclick=" Display.value += '5'">
+                    <input type="button" value="6" onclick=" Display.value += '6'">
+                    <input type="button" value="-" onclick=" Display.value += '-'" class="operators" >
+                </div>
+                <div>
+                    <input type="button" value="1" onclick=" Display.value += '1'" >
+                    <input type="button" value="2" onclick=" Display.value += '2'" >
+                    <input type="button" value="3" onclick=" Display.value += '3'" >
+                    <input type="button" value="+" onclick=" Display.value += '+'" class="operators">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick=" Display.value += '00'" >
+                    <input type="button" value="0" onclick=" Display.value += '0'">
+                    <input type="button" value="=" onclick=" Display.value= eval(Display.value)" class="space operators"  >
+                    
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>
